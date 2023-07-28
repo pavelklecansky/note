@@ -1,4 +1,4 @@
-import { router } from "Frontend/routes.js";
+import router  from "Frontend/routes.js";
 import { RouterProvider } from "react-router-dom";
 import "./main.css";
 
