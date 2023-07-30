@@ -3,6 +3,7 @@ plugins {
 	id("org.springframework.boot") version "3.0.6"
 	id("io.spring.dependency-management") version "1.1.0"
 	id("dev.hilla") version "2.1.2"
+	id("com.diffplug.spotless") version "6.18.0"
 }
 
 group = "cz.klecansky"
@@ -29,6 +30,17 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom("dev.hilla:hilla-bom:$hillaVersion")
+	}
+}
+
+spotless {
+	java {
+		target("src/*/java/**/*.java")
+		toggleOffOn()
+		palantirJavaFormat()
+		removeUnusedImports()
+		trimTrailingWhitespace()
+		endWithNewline()
 	}
 }
 
